@@ -1,16 +1,13 @@
 package cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.domain;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
+import lombok.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
+@Data
 @Builder
-
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name="Jugador")
 
@@ -29,52 +26,6 @@ public class PlayerEntity {
     @ManyToOne
     @JoinColumn(name = "id_User", referencedColumnName = "userID")
     private UserEntity userEntity;
-    public PlayerEntity() {
-    }
-    public PlayerEntity(String name, UserEntity userEntity) {
-        this.name = name;
-        this.userEntity = userEntity;
-    }
-
-    public int getIdPlayer() {
-        return idPlayer;
-    }
-
-    public void setIdPlayer(int idPlayer) {
-        this.idPlayer = idPlayer;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public LocalDateTime getFechaRegistro() {
-        return fechaRegistro;
-    }
-
-    public void setFechaRegistro(LocalDateTime fechaRegistro) {
-        this.fechaRegistro = fechaRegistro;
-    }
-
-    public List<GameEntity> getListaPartidas() {
-        return listaPartidas;
-    }
-
-    public void setListaPartidas(List<GameEntity> listaPartidas) {
-        this.listaPartidas = listaPartidas;
-    }
-
-    public UserEntity getUserEntity() {
-        return userEntity;
-    }
-
-    public void setUserEntity(UserEntity userEntity) {
-        this.userEntity = userEntity;
-    }
 
     public void agregarPartida(GameEntity juego){
         listaPartidas.add(juego);

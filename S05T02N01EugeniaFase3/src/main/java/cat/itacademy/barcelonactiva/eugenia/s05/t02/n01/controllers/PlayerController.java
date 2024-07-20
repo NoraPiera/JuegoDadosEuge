@@ -5,6 +5,7 @@ import cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.service.implementa
 import cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.service.implementaciones.JwtService;
 import cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.service.implementaciones.PlayerServiceImpl;
 import jakarta.servlet.http.HttpServletRequest;
+
 import lombok.RequiredArgsConstructor;
 import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/players")

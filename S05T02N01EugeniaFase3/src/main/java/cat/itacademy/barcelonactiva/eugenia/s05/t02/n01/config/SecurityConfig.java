@@ -1,6 +1,8 @@
 package cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.config;
 import lombok.RequiredArgsConstructor;
+
 import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;

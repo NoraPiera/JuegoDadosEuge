@@ -7,6 +7,7 @@ import cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.dto.GameDTO;
 import cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.repository.GameRepository;
 import cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.repository.PlayerRepository;
 import cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.service.interfaces.GameService;
+import cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.utils.ConversorGame;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

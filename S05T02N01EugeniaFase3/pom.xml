@@ -5,10 +5,10 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.5</version>
+		<version>3.3.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.Fase3</groupId>
+	<groupId>cat.itacademy.barcelonactiva.eugenia.s05.t02.n01</groupId>
 	<artifactId>S05T02N01EugeniaFase3</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>S05T02N01EugeniaFase3</name>
@@ -23,18 +23,13 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-mongodb</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
-			<version>3.2.5</version>
+			<!-- Versión gestionada por spring-boot-starter-parent -->
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>com.mysql</groupId>
 			<artifactId>mysql-connector-j</artifactId>
@@ -43,7 +38,7 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.18.24</version> <!-- Usa la versión adecuada -->
+			<version>1.18.30</version> <!-- Versión adecuada -->
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
@@ -74,14 +69,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
-				</configuration>
+				<!-- La configuración para excluir Lombok no es necesaria -->
 			</plugin>
 		</plugins>
 	</build>
