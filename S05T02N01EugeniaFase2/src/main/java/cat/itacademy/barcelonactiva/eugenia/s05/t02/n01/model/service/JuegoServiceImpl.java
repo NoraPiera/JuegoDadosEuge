@@ -11,6 +11,8 @@ import cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.service.Interfaces
 import cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.utils.ConversorJuego;
 import org.springframework.beans.factory.annotation.Autowired;
 import jakarta.transaction.Transactional;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;

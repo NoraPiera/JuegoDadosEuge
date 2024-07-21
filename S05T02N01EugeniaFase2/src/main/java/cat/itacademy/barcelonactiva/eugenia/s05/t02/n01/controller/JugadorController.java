@@ -1,4 +1,8 @@
 package cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.controller;
+import cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.dto.JuegoDTO;
+import cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.dto.JugadorDTO;
+import cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.service.JuegoServiceImpl;
+import cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.service.JugadorServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
