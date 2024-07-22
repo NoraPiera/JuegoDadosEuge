@@ -1,7 +1,9 @@
 package cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.domain;
 
 
-import jakarta.persistence.Id;
+
+import lombok.*;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -11,7 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
+@Data
+@AllArgsConstructor
 @Document(collection = "Jugador")
 public class JugadorEntity {
     @Id
@@ -26,44 +29,6 @@ public class JugadorEntity {
     public JugadorEntity(){
         this.listaPartidas = new ArrayList<>();
 
-    }
-    public JugadorEntity(String id, LocalDateTime fechaRegistro, String nombreJugador, List<JuegoEntity> listaPartidas){
-        this.id = id;
-        this.fechaRegistro = LocalDateTime.now();
-        this.nombreJugador = nombreJugador;
-        this.listaPartidas = listaPartidas;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public LocalDateTime getFechaRegistro() {
-        return fechaRegistro;
-    }
-
-    public void setFechaRegistro(LocalDateTime fechaRegistro) {
-        this.fechaRegistro = fechaRegistro;
-    }
-
-    public String getNombreJugador() {
-        return nombreJugador;
-    }
-
-    public void setNombreJugador(String nombreJugador) {
-        this.nombreJugador = nombreJugador;
-    }
-
-    public List<JuegoEntity> getListaPartidas() {
-        return listaPartidas;
-    }
-
-    public void setListaPartidas(List<JuegoEntity> listaPartidas) {
-        this.listaPartidas = listaPartidas;
     }
 
     public void agregarPartida(JuegoEntity juego){

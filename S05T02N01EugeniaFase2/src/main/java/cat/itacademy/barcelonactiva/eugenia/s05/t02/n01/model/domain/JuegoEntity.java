@@ -1,32 +1,36 @@
 package cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.domain;
 
-import jakarta.persistence.Id;
+
 import lombok.*;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.time.LocalDateTime;
 
-
+@Data
+@AllArgsConstructor
 @Document(collection = "Juego")
 public class JuegoEntity {
     @Id
     private String id;
-    @Field(name="Fecha_Registro")
+    @Field(name = "Fecha_Registro")
     private LocalDateTime fechaRegistro;
-    @Field(name="Dado1")
+    @Field(name = "Dado1")
     private int dado1;
-    @Field(name="Dado2")
+    @Field(name = "Dado2")
     private int dado2;
-    @Field(name="Resultado")
+    @Field(name = "Resultado")
     private boolean partidaGanada;
     @DBRef
     private JugadorEntity jugadorEntity;
-    public JuegoEntity(){
+
+    public JuegoEntity() {
 
     }
-    public JuegoEntity(String id, LocalDateTime fechaRegistro, int dado1, int dado2, boolean partidaGanada){
+
+    public JuegoEntity(String id, LocalDateTime fechaRegistro, int dado1, int dado2, boolean partidaGanada) {
         this.id = id;
         this.fechaRegistro = LocalDateTime.now();
         this.dado1 = dado1;
@@ -83,10 +87,8 @@ public class JuegoEntity {
         this.jugadorEntity = jugadorEntity;
     }
 
-    public boolean calcularPartidaGanada(){
+    public boolean calcularPartidaGanada() {
         return dado1 + dado2 == 7;
     }
-
-
 
 }

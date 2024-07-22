@@ -10,8 +10,9 @@ import cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.repository.Jugador
 import cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.service.Interfaces.JuegoService;
 import cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.utils.ConversorJuego;
 import org.springframework.beans.factory.annotation.Autowired;
-import jakarta.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -33,11 +34,11 @@ public class JuegoServiceImpl implements JuegoService {
 
             JugadorEntity jugadorEntity = optionalJugadorEntity.get();
 
-            partida(juegoEntity);//Se le da valor a los dados
+            partida(juegoEntity);
 
-            jugadorEntity.agregarPartida(juegoEntity);//se añade el juego a la lista de juegos del jugador
+            jugadorEntity.agregarPartida(juegoEntity);
             juegoRepository.save(juegoEntity);
-            jugadorRepository.save(jugadorEntity);//guardamos el juego en la bbdd
+            jugadorRepository.save(jugadorEntity);
             return ConversorJuego.convertirDesdeJuegoEntity(juegoEntity);
         }else{
             throw new JugadorNoExiste("No se ha econtrado al jugador con ID " + id);

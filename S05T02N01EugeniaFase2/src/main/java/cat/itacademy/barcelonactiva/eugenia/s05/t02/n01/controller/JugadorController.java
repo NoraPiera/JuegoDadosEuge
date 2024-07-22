@@ -19,21 +19,20 @@ public class JugadorController {
     JuegoServiceImpl juegoService;
 
     @PostMapping("/crear")
-    ResponseEntity<JugadorDTO> crearJugador(@RequestBody JugadorDTO jugadorDTO) {//Le pongo <?> porque devuelve dos ResponseEntity diferentes
+    ResponseEntity<JugadorDTO> crearJugador(@RequestBody JugadorDTO jugadorDTO) {
 
         JugadorDTO jugadorDTO1 = jugadorService.crear(jugadorDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(jugadorDTO1);//Devuelve un DTO
+        return ResponseEntity.status(HttpStatus.CREATED).body(jugadorDTO1);
     }
 
     @PutMapping("/actualizar/{id}")
     ResponseEntity<JugadorDTO> actualzarJugador(@PathVariable String id, @RequestBody JugadorDTO jugadorDTO) {
 
         JugadorDTO jugadorDTO1 = jugadorService.actualizar(id, jugadorDTO);
-        return ResponseEntity.ok(jugadorDTO1);//puedo usar solo ok, sin mostrar los atributos del abjeto actualizado
-
+        return ResponseEntity.ok(jugadorDTO1);
     }
 
-    @PostMapping("/{id}/partidas")//un jugador/a específic realitza una tirada dels daus.
+    @PostMapping("/{id}/partidas")
     public ResponseEntity<JuegoDTO> jugarPartida(@PathVariable String id) {
 
         JuegoDTO juegoDTO = juegoService.jugarJuego(id);
