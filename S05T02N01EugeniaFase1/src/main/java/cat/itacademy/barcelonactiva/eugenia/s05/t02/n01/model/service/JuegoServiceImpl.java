@@ -31,10 +31,10 @@ public class JuegoServiceImpl implements JuegoService {
         if(optionalJugadorEntity.isPresent()){
             JugadorEntity jugadorEntity = optionalJugadorEntity.get();
             JuegoEntity juegoEntity= new JuegoEntity();
-            partida(juegoEntity);//Se le da valor a los dados
-            juegoEntity.setJugadorEntity(jugadorEntity);//indicamos qué jugador al juego
-            jugadorEntity.agregarPartida(juegoEntity);//se añade el juego a la lista de juegos del jugador
-            juegoRepository.save(juegoEntity);//guardamos el juego en la bbdd
+            partida(juegoEntity);
+            juegoEntity.setJugadorEntity(jugadorEntity);
+            jugadorEntity.agregarPartida(juegoEntity);
+            juegoRepository.save(juegoEntity);
             return ConversorJuego.convertirDesdeJuegoEntity(juegoEntity);
         }else{
             throw new JugadorNoExiste("No se ha econtrado al jugador con ID " + id);

@@ -27,7 +27,7 @@ public class JugadorServiceImpl implements JugadorService {
         if(jugadorDTO.getNombreJugador().isBlank() || jugadorDTO.getNombreJugador().equalsIgnoreCase("ANONIMO")){
             jugadorDTO.setNombreJugador("Anonimo");
         }else if(jugadorRepository.existeNombreJugador(jugadorDTO.getNombreJugador())){
-            throw new JugadorExistente("Ya existe un jugador con ese nombre");
+            throw new JugadorExistente("Existe un jugador con ese nombre.");
         }
 
         return ConversorJugador.convertirDesdeJugadorEntity(jugadorRepository.save(ConversorJugador.convertirParaJugadorEntity(jugadorDTO)));
@@ -42,7 +42,6 @@ public class JugadorServiceImpl implements JugadorService {
             JugadorEntity jugadorEntity = optionalJugadorEntity.get();
             jugadorEntity.setNombreJugador(jugadorDTO.getNombreJugador());
             jugadorRepository.save(jugadorEntity);
-            //jugadorActualizado = ConversorJugador.convertirDesdeJugadorEntity(jugadorEntity);
             jugadorActualizado = ConversorJugador.convertirDesdeJugadorEntity(jugadorEntity);
             return jugadorActualizado;
         }else{
@@ -96,7 +95,7 @@ public class JugadorServiceImpl implements JugadorService {
             double tasaExito = listaJugadorEntity.stream().mapToDouble(JugadorEntity::porcentaje).sum();
             return Math.round(tasaExito/listaJugadorEntity.size());
         } else{
-            throw new JugadoresNoEncontrados("No exite ninguna lista de jugadores para hacer el cálculo medio de éxito");
+            throw new JugadoresNoEncontrados("No existe ninguna lista de jugadores para hacer el cálculo medio de éxito");
         }
     }
 

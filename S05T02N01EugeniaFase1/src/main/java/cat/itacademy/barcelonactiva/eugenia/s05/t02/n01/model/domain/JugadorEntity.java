@@ -1,5 +1,4 @@
 package cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.domain;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,75 +9,41 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table(name="Jugador")
+@Table(name = "Jugador")
 public class JugadorEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int pk_IdJugador;
-    @Column(name="NombreJugador")
+
+    @Column(name = "NombreJugador", nullable = false)
     private String nombreJugador;
-    @Column(name="FechaRegistro")
+
+    @Column(name = "FechaRegistro", updatable = false, nullable = false)
     private LocalDateTime fechaRegistro = LocalDateTime.now();
 
-    @OneToMany(mappedBy = "jugadorEntity", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "jugadorEntity", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<JuegoEntity> listaPartidas = new ArrayList<>();
 
-    public JugadorEntity(){
 
-    }
-    public JugadorEntity(String nombreJugador){
-        this.nombreJugador = nombreJugador;
-    }
-
-    public int getPk_IdJugador() {
-        return pk_IdJugador;
-    }
-
-    public void setPk_IdJugador(int pk_IdJugador) {
-        this.pk_IdJugador = pk_IdJugador;
-    }
-
-    public String getNombreJugador() {
-        return nombreJugador;
-    }
-
-    public void setNombreJugador(String nombreJugador) {
-        this.nombreJugador = nombreJugador;
-    }
-
-    public LocalDateTime getFechaRegistro() {
-        return fechaRegistro;
-    }
-
-    public void setFechaRegistro(LocalDateTime fechaRegistro) {
-        this.fechaRegistro = fechaRegistro;
-    }
-
-    public List<JuegoEntity> getListaPartidas() {
-        return listaPartidas;
-    }
-
-    public void setListaPartidas(List<JuegoEntity> listaPartidas) {
-        this.listaPartidas = listaPartidas;
-    }
-
-    public void agregarPartida(JuegoEntity juego){
-        if(listaPartidas.isEmpty()){
-            listaPartidas = new ArrayList<>();
+    public void agregarPartida(JuegoEntity juego) {
+        if (juego != null) {
+            listaPartidas.add(juego);
+            juego.setJugadorEntity(this);
         }
-        listaPartidas.add(juego);
     }
-    public float porcentaje(){
-        float porcentajeExito = 0.0f;
-        if(listaPartidas != null & !listaPartidas.isEmpty()){
-            long totalPartidas = listaPartidas.size();
-            long partidasGanadas = listaPartidas.stream().filter(JuegoEntity::partidaGanada).count();
-            porcentajeExito = (float) partidasGanadas/totalPartidas * 100;
+
+
+    public float porcentaje() {
+        if (listaPartidas.isEmpty()) {
+            return 0.0f;
         }
-        return porcentajeExito;
+        long totalPartidas = listaPartidas.size();
+        long partidasGanadas = listaPartidas.stream().filter(JuegoEntity::partidaGanada).count();
+        return (float) partidasGanadas / totalPartidas * 100;
     }
 }
