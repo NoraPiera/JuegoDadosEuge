@@ -27,7 +27,7 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public AuthResponse register(UserDTO userDTO) {
         if(userAlreadyExists(userDTO.getEmail())){
-            throw new UserAlreadyExists("User already exists.");
+            throw new UserAlreadyExists("El ususario ya existe.");
         }
         var user = UserEntity.builder()
                 .name(userDTO.getName())

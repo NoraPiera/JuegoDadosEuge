@@ -67,7 +67,7 @@ public class GameServiceImpl implements GameService {
         if(!listaPartidas.isEmpty()){
             return listaPartidas.stream().map(ConversorGame::convertirDesdeGameEntity).collect(Collectors.toList());
         }else {
-            throw new GameNotFound("No se han encontrado partifas");
+            throw new GameNotFound("No se han encontrado partidas");
         }
     }
 

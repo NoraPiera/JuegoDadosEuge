@@ -29,7 +29,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(auth -> auth.requestMatchers(publicEndPoints()).permitAll()//requestMatchaer nos va a indicar qué endpoints no necesitan autorizacion
+                .authorizeHttpRequests(auth -> auth.requestMatchers(publicEndPoints()).permitAll()
                         .anyRequest().authenticated())
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
@@ -40,7 +40,14 @@ public class SecurityConfig {
         return new OrRequestMatcher(
                 new AntPathRequestMatcher("/api/auth/register"),
                 new AntPathRequestMatcher("/api/auth/authenticate"),
-                new AntPathRequestMatcher("/swaggerJuegoDados/**")
+                new AntPathRequestMatcher("/swaggerJuegoDados/**"),
+                new AntPathRequestMatcher("/swagger"),
+                new AntPathRequestMatcher("/swagger/**"),
+                new AntPathRequestMatcher("/swagger-ui/**"),
+                new AntPathRequestMatcher("/swagger-resources/**"),
+                new AntPathRequestMatcher("/v3/api-docs/**"),
+                new AntPathRequestMatcher("/error")
+
         );
     }
 }

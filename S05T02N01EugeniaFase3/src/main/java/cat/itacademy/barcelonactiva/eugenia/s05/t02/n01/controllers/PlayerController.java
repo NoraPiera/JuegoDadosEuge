@@ -27,7 +27,7 @@ public class PlayerController {
     @Autowired
     private JwtService jwtService;
     @PostMapping("/crear")
-    ResponseEntity<PlayerDTO> agregarJugador(@RequestBody PlayerDTO jugadorDTO, HttpServletRequest httpServletRequest){//Le pongo <?> porque devuelve dos ResponseEntity diferentes
+    ResponseEntity<PlayerDTO> agregarJugador(@RequestBody PlayerDTO jugadorDTO, HttpServletRequest httpServletRequest){
         String token = jwtService.extraerToken(httpServletRequest);
         String userEmail = jwtService.getUserName(token);
         PlayerDTO jugadorDTO1 = playerService.agregarPlayer(jugadorDTO, userEmail);
