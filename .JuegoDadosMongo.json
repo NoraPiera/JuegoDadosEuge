@@ -1,0 +1,90 @@
+[{
+  "_id": {
+    "$oid": "669e34235d90d541d18dedf3"
+  },
+  "Dado1": 2,
+  "Dado2": 2,
+  "Resultado": false,
+  "_class": "cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.domain.JuegoEntity"
+},
+{
+  "_id": {
+    "$oid": "669e34255d90d541d18dedf4"
+  },
+  "Dado1": 2,
+  "Dado2": 6,
+  "Resultado": false,
+  "_class": "cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.domain.JuegoEntity"
+},
+{
+  "_id": {
+    "$oid": "669e34265d90d541d18dedf5"
+  },
+  "Dado1": 2,
+  "Dado2": 4,
+  "Resultado": false,
+  "_class": "cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.domain.JuegoEntity"
+},
+{
+  "_id": {
+    "$oid": "669e343a5d90d541d18dedf6"
+  },
+  "Dado1": 2,
+  "Dado2": 1,
+  "Resultado": false,
+  "_class": "cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.domain.JuegoEntity"
+},
+{
+  "_id": {
+    "$oid": "669e343c5d90d541d18dedf7"
+  },
+  "Dado1": 1,
+  "Dado2": 1,
+  "Resultado": false,
+  "_class": "cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.domain.JuegoEntity"
+},
+{
+  "_id": {
+    "$oid": "669e347d5d90d541d18dedf8"
+  },
+  "Dado1": 3,
+  "Dado2": 1,
+  "Resultado": false,
+  "_class": "cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.domain.JuegoEntity"
+},
+{
+  "_id": {
+    "$oid": "669e347f5d90d541d18dedf9"
+  },
+  "Dado1": 4,
+  "Dado2": 5,
+  "Resultado": false,
+  "_class": "cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.domain.JuegoEntity"
+},
+{
+  "_id": {
+    "$oid": "669e34805d90d541d18dedfa"
+  },
+  "Dado1": 2,
+  "Dado2": 5,
+  "Resultado": true,
+  "_class": "cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.domain.JuegoEntity"
+},
+{
+  "_id": {
+    "$oid": "669e34815d90d541d18dedfb"
+  },
+  "Dado1": 2,
+  "Dado2": 1,
+  "Resultado": false,
+  "_class": "cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.domain.JuegoEntity"
+},
+{
+  "_id": {
+    "$oid": "669e34825d90d541d18dedfc"
+  },
+  "Dado1": 2,
+  "Dado2": 1,
+  "Resultado": false,
+  "_class": "cat.itacademy.barcelonactiva.eugenia.s05.t02.n01.model.domain.JuegoEntity"
+}]
