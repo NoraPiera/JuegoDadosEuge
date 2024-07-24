@@ -30,7 +30,10 @@ public class PlayerController {
     ResponseEntity<PlayerDTO> agregarJugador(@RequestBody PlayerDTO jugadorDTO, HttpServletRequest httpServletRequest){
         String token = jwtService.extraerToken(httpServletRequest);
         String userEmail = jwtService.getUserName(token);
-        PlayerDTO jugadorDTO1 = playerService.agregarPlayer(jugadorDTO, userEmail);
+        PlayerDTO jugadorDTO1 = null;
+
+        jugadorDTO1 = playerService.agregarPlayer(jugadorDTO, userEmail);
+
         return new ResponseEntity<>(jugadorDTO1, HttpStatus.CREATED);
     }
     @PutMapping("/actualizar/{id}")
